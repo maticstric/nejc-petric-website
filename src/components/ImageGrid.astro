@@ -1,0 +1,16 @@
+---
+import { Image } from 'astro:assets';
+
+const modules = import.meta.glob<{ default: ImageMetadata }>(
+	'../assets/images/*.{jpg,jpeg,png,webp}',
+	{ eager: true }
+);
+
+const images = Object.values(modules).map((m) => m.default);
+---
+
+<div class="grid gap-10 mt-15 m-10 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
+	{images.map((img) => (
+		<Image src={img} alt="Project image" class="aspect-square" />
+	))}
+</div>

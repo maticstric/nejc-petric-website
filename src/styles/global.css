@@ -1,11 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');*/
 @import "tailwindcss";
 
 @theme inline {
-  --font-sans: var(--inter), sans-serif;
+  /*--font-sans: var(--inter), sans-serif;*/
 
   --color-background: #f2f0eb;
   --color-text: #201307;
   --color-text-secondary: #77614f;
   --color-highlight: #e68e15;
+}
+
+h1 {
+  @apply text-2xl md:text-5xl lg:text-6xl font-bold;
+}
+
+h2 {
+  @apply text-xl md:text-2xl lg:text-2xl;
 }
