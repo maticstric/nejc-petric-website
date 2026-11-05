@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Cursor from '../components/Cursor.astro'
 
 const { title = 'Nejc Petrič' } = Astro.props;
 ---
@@ -14,6 +15,7 @@ const { title = 'Nejc Petrič' } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
+    <Cursor />
 		<slot />
 	</body>
 </html>

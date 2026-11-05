@@ -9,8 +9,8 @@ const modules = import.meta.glob<{ default: ImageMetadata }>(
 const images = Object.values(modules).map((m) => m.default);
 ---
 
-<div class="grid gap-10 mt-15 m-10 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
+<div class="grid gap-10 pt-15 p-10 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
 	{images.map((img) => (
-		<Image src={img} alt="Project image" class="aspect-square" />
+    <Image src={img} alt="Project image" class="aspect-square w-full object-cover" />
 	))}
 </div>

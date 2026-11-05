@@ -1,0 +1,62 @@
+<div id="cursor"></div>
+
+<style is:global>
+	body,
+	a,
+	button {
+		cursor: none;
+	}
+
+	#cursor {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 20px;
+		height: 20px;
+		margin: -10px 0 0 -10px;
+    outline: 3px solid black;
+		pointer-events: none;
+		z-index: 9999;
+		transition: width 0.2s, height 0.2s, margin 0.2s;
+	}
+
+  /* Ignore on phone */
+	@media (hover: none) {
+		#cursor {
+			display: none;
+		}
+		body,
+		a,
+		button {
+			cursor: auto;
+		}
+	}
+
+  #cursor.spin {
+    animation: cursor-spin 1s linear infinite;
+  }
+
+  @keyframes cursor-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+</style>
+
+<script>
+	const cursor = document.getElementById('cursor')!;
+
+	window.addEventListener('mousemove', (e) => {
+		cursor.style.left = `${e.clientX}px`;
+		cursor.style.top = `${e.clientY}px`;
+	});
+
+	document.querySelectorAll('a').forEach((el) => {
+		el.addEventListener('mouseenter', () => {
+      cursor.classList.add('spin');
+		});
+		el.addEventListener('mouseleave', () => {
+      cursor.classList.remove('spin');
+		});
+	});
+</script>
