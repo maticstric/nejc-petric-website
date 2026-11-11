@@ -1,13 +1,15 @@
+---
+const { height = 'Nejc Petrič' } = Astro.props;
+---
 <div id="cursor"></div>
 
 <style is:global>
-	body,
-	a,
-	button {
+	* {
 		cursor: none;
 	}
 
 	#cursor {
+    opacity: 0;
 		position: fixed;
 		top: 0;
 		left: 0;
@@ -25,9 +27,7 @@
 		#cursor {
 			display: none;
 		}
-		body,
-		a,
-		button {
+		* {
 			cursor: auto;
 		}
 	}
@@ -49,6 +49,7 @@
 	window.addEventListener('mousemove', (e) => {
 		cursor.style.left = `${e.clientX}px`;
 		cursor.style.top = `${e.clientY}px`;
+    cursor.style.opacity = '1';
 	});
 
 	document.querySelectorAll('a').forEach((el) => {
